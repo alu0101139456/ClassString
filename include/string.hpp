@@ -7,15 +7,15 @@ class String {
 
  private:
   static const int npos_ = -1;
-  char *cadena_;
-  int sz_;
+  char *str_;
+  int length_;
 
  public:
-  String();
-  String(const char* cadena);
-  String(const String& str);
-  String(const String& str, int pos, int sz=npos_);
-  String(int sz, char crtr);
+  String(); //Default 
+  String(const char* cadena);  //from c-string
+  String(const String& str);   //copy 
+  String(const String& str, int pos, int sz=npos_);  //substring
+  String(int sz, char crtr);    //fill with a character
 
   ~String();
 
@@ -27,6 +27,7 @@ class String {
 
   char front() const;
   char& front();
+  
   char back() const;
   char& back();
 
@@ -61,7 +62,6 @@ class String {
  private:
 
   void resize(int length);
-  
 
 };
 
