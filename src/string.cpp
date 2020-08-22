@@ -7,7 +7,7 @@ String::String() {
 }
 
 String::String(const char *cadena){
-  
+
 }
 String::String(const String &str) {
 
