@@ -3,12 +3,20 @@
 #include <iostream>
 #include <vector>
 
+struct Coordenadas
+{
+  int ini_;
+  int fin_; 
+}; 
+
+
 class String
 {
 
 private:
   static const int npos_ = -1;
-  char *cadena_;
+  // char *cadena_;
+  char *cadena_ = nullptr;
   int sz_;
 
 public:
@@ -61,6 +69,8 @@ public:
 
 private:
   void resize(int length);
+  Coordenadas find(const String& str); 
+  String makeString(int inicio, int fin);
 };
 
 String operator+(const String &str1, const String &str2);
