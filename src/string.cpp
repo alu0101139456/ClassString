@@ -33,7 +33,7 @@ String::String(const String &str) {
 
 String::String(const String &str, int pos, int sz){
   
-  int newSize = str.sz_ - pos;
+  int newSize = str.length() - pos - sz;
   int i=0;  
   if( sz == npos_) {
     cadena_ = new char[newSize];
@@ -48,8 +48,7 @@ String::String(const String &str, int pos, int sz){
   else {
     cadena_ = new char[sz];
     int aux=0;
-    while (aux < sz)
-    {
+    while (aux < sz) {
       cadena_[i] = str.cadena_[pos];
       pos++;   
       aux++;
@@ -65,7 +64,6 @@ String::String(int sz, char crtr){
     cadena_[i] = crtr;
   }
   sz_ = sz;
-  std::cout << cadena_ << std::endl;
 }
 
 String::~String(){
@@ -283,10 +281,8 @@ void String::resize(int length) {
 }
 
 std::ostream& operator<<(std::ostream &os, const String &str) {
-  for (int i = 0; i < str.length(); i++) {
-    os << str[i];
-  }
-  
+
+  os << str.c_str();
   return os;
 }
 
