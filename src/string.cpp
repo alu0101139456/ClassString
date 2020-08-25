@@ -4,6 +4,8 @@
 
 String::String() {
   sz_ = 0;
+  cadena_ = new char[sz_];
+
 }
 
 String::String(const char *cadena){
@@ -105,12 +107,13 @@ void String::push_back(char ch){
   resize(sz_ + 1);
   cadena_[sz_ - 1] = ch;
   
-  std::cout << cadena_ << std::endl;
+  // std::cout << cadena_ << std::endl;
 }
 
 // //pop_back
 void String::clear() {
   char* temp = new char[sz_];
+  delete[] cadena_;
   this->cadena_ = temp;
 }
 
@@ -136,7 +139,7 @@ String& String::operator=(const String &str){
 String& String::operator=(const char &chr){
   resize(1);
   cadena_[0] = chr;
-  std::cout << cadena_ << std::endl;
+  // std::cout << cadena_ << std::endl;
   return *this;
 }
 
@@ -152,10 +155,11 @@ String& String::operator+=(const String &str){
   std::cout << cadena_ << std::endl;
   return *this;
 }
+
 String& String::operator+=(const char &chr){ //fijarse si hasce falta dejarlo como referencia
   resize(sz_ + 1);
   cadena_[sz_ - 1] = chr;
-  std::cout << cadena_ << std::endl;
+  // std::cout << cadena_ << std::endl;
   return *this;
 }
 
@@ -225,60 +229,42 @@ String& String::substr(int pos, int length) {
  
 }
 
-String String::makeString(int inicio, int fin) {
-  int sz = fin - inicio;
-  std::cout << "Tamaño de nuevo string: " << sz << std::endl;
-  String aux;
-  aux.cadena_ = new char[sz];
-  // char *temp = new char[sz];
-
-  for (int i = 0; i < sz; i++) {
-    aux.cadena_[i] = cadena_[inicio];
-    inicio++;
-  }
-  std::cout << "MakeString creo:" << aux.cadena_ << std::endl;
-
-  return aux;
-}
-
-std::vector<String>& String::split(char delimit) {
-  
+std::vector<String> String::split(char delimit) {
   std::vector<String> vString;
-  int ini = 0;
-  int fin = -1;  
-  bool firstIt = true;
-  // std::cout << "Tamaño de la cadena = " << sz_ << std::endl;
+  String temp = "";
+  // this->push_back(delimit);  
   for (int i = 0; i < sz_; i++) {
-    // std::cout << "Inicio: " << ini << " Fin: " << fin << std::endl;
-    if( cadena_[i] == delimit) {
-      fin = i;
-      std::cout << "Inicio: " << ini << " Fin: " << fin << std::endl;
-      
-      String temp = makeString(ini, fin);
-      // vString.push_back(temp);
-      if(firstIt) {
-        ini = i; 
-        firstIt = false; 
-      }
-      ini = i + 1;
-      // std::cout << "Termina bucle" << std::endl;
+    if (at(i) != delimit) {
+      temp += at(i);
+    } else {
+      vString.push_back(temp);
+      std::cout << vString.back() << std::endl; 
+      temp = "";
     }
   }
-  String temp = makeString(fin+1, sz_);
-
-  for(int i = 0; i < vString.size(); i++){
-    std::cout << vString[i].cadena_ << std::endl; 
-  }
-  return vString; 
+  std::cout << "Voy a meter temp: " << temp << std::endl; 
+   vString.push_back(temp);  
+  // for(int i = 0; i < vString.size(); i++){
+  //   std::cout << vString[i].c_str() << std::endl; 
+  
+  // }
+  return vString;
 }
 
-// String String::join(std::vector<String> &vStr, char joint = ' ') {
 
-// }
-//   //String join(std::vector<String> &vStr, String joint);
-
-//   //trim -> Coge los espacios o tabuladores por los extremos y los quita
-
+String join(std::vector<String> &vStr, char joint){
+  std::cout << "Entrando a join" << std::endl; 
+  String temp; 
+  std:: cout << temp << std::endl; 
+  // for(int i = 0 ; i < vStr.size(); i++){
+  //   temp += vStr[i]; 
+  //   if(i < vStr.size() - 1){
+  //     temp += joint; 
+  //     std::cout << temp << std::endl; 
+  //   }
+  // }
+  return temp; 
+}
 
 void String::resize(int length) {
   char* temp = new char[length];
@@ -288,4 +274,14 @@ void String::resize(int length) {
   this->cadena_ = temp;
   sz_ = length;
   
+}
+
+std::ostream& operator<<(std::ostream &os, const String &str) {
+  os << str.c_str();
+  return os;
+}
+
+std::istream &operator>>(std::istream &is, const String &str){
+  is >> str.c_str(); 
+  return is; 
 }
