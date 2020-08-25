@@ -1,7 +1,5 @@
 #include "string.hpp"
 
-
-
 String::String() {
   sz_ = 0;
 }
