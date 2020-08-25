@@ -1,11 +1,8 @@
 #include "string.hpp"
 
-
-
 String::String() {
   sz_ = 0;
   cadena_ = new char[sz_];
-
 }
 
 String::String(const char *cadena){
@@ -25,8 +22,12 @@ String::String(const char *cadena){
 
 String::String(const String &str) {
   sz_ = str.sz_;
-  cadena_ = str.cadena_;
+  cadena_ = new char[sz_];
 
+  for (int i = 0; i < sz_; i++) {
+    cadena_[i] = str.cadena_[i];
+  }
+  
 }
 
 
@@ -87,7 +88,7 @@ char String::at(int pos) const{
 }
 
 char& String::at(int pos){
-  return cadena_[pos]; //DUDA
+  return cadena_[pos]; 
 }
 
 char String::front() const{
@@ -108,6 +109,7 @@ void String::push_back(char ch){
   cadena_[sz_ - 1] = ch;
   
   // std::cout << cadena_ << std::endl;
+
 }
 
 // //pop_back
@@ -187,17 +189,25 @@ String& String::replace(int pos, int sz, const String &str) {
   }
 
   std::cout << "Resultado: " << temp << std::endl; 
+  return *this;
 }
-// Coordenadas String::find(const String& str){
 
-// String& String::replace(const String &subStr, const String &newStr2) {
+String& String::replace(const String &subStr, const String &newStr2) {
   
-// }
+  for (int i = 0; i < sz_; i++) {
+    String temp = substr(i, subStr.length());
+    if(temp == subStr) {
+      replace(i, subStr.length(), newStr2);
+    }
+  }
+}
 
 
 // String& String::replace_all(const String &subStr, const String &newStr2) {
 
+
 // }
+
 
 String& String::substr(int pos, int length) {
   
@@ -231,8 +241,9 @@ String& String::substr(int pos, int length) {
 
 std::vector<String> String::split(char delimit) {
   std::vector<String> vString;
-  String temp = "";
-  // this->push_back(delimit);  
+  
+  String temp;
+  this->push_back(delimit);  
   for (int i = 0; i < sz_; i++) {
     if (at(i) != delimit) {
       temp += at(i);
@@ -242,12 +253,7 @@ std::vector<String> String::split(char delimit) {
       temp = "";
     }
   }
-  std::cout << "Voy a meter temp: " << temp << std::endl; 
-   vString.push_back(temp);  
-  // for(int i = 0; i < vString.size(); i++){
-  //   std::cout << vString[i].c_str() << std::endl; 
-  
-  // }
+
   return vString;
 }
 
@@ -255,14 +261,14 @@ std::vector<String> String::split(char delimit) {
 String join(std::vector<String> &vStr, char joint){
   std::cout << "Entrando a join" << std::endl; 
   String temp; 
-  std:: cout << temp << std::endl; 
-  // for(int i = 0 ; i < vStr.size(); i++){
-  //   temp += vStr[i]; 
-  //   if(i < vStr.size() - 1){
-  //     temp += joint; 
-  //     std::cout << temp << std::endl; 
-  //   }
-  // }
+  // std:: cout << temp << std::endl; 
+  for(int i = 0 ; i < vStr.size(); i++){
+    temp += vStr[i]; 
+    if(i < vStr.size() - 1){
+      temp += joint; 
+      std::cout << temp << std::endl; 
+    }
+  }
   return temp; 
 }
 
@@ -277,11 +283,36 @@ void String::resize(int length) {
 }
 
 std::ostream& operator<<(std::ostream &os, const String &str) {
-  os << str.c_str();
+  for (int i = 0; i < str.length(); i++) {
+    os << str[i];
+  }
+  
   return os;
 }
 
 std::istream &operator>>(std::istream &is, const String &str){
   is >> str.c_str(); 
   return is; 
+}
+
+String operator+(const String &str1, const String &str2) {
+  String temp;
+  temp += str1;
+  temp += str2;
+  return temp;
+}
+
+bool operator==(const String &str1, const String &str2) {
+  int count=0;
+  bool temp;
+  if(str1.length() == str2.length()) {
+    for (int i = 0; i < str1.length(); i++) {
+      if(str1[i] == str2[i]) count++;
+    }      
+  }
+  return (count == str1.length())? true : false;
+}
+
+bool operator!=(const String &str1, const String &str2) {
+  return !(str1 == str2);
 }
