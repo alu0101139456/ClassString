@@ -125,7 +125,9 @@ public:
    * @param lenght Tamaño que se quiere del substring
    * @return Devuelve una referencia del substring 
    **/ 
-  String &substr(int pos, int length = npos_);
+  // String &substr(int pos, int length = npos_);
+
+  String substr(int pos, int length = npos_);
 
   std::vector<String> split(char delimit = ' ');
 
@@ -136,6 +138,7 @@ public:
 
 private:
   void resize(int length);
+
   
 };
 

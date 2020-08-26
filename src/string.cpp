@@ -35,6 +35,7 @@ String::String(const String &str, int pos, int sz){
   
   int newSize = str.length() - pos - sz;
   int i=0;  
+  sz_ = sz;
   if( sz == npos_) {
     cadena_ = new char[newSize];
     while (str.cadena_[pos] != '\0' || i < newSize)
@@ -78,7 +79,7 @@ int String::length() const{
 }
 
 const char* String::c_str() const{
-  return cadena_; //DUDA
+  return cadena_; 
 }
 
 char String::at(int pos) const{
@@ -132,14 +133,12 @@ String& String::operator=(const String &str){
   for (int i = 0; i < sz_; i++) {
     cadena_[i] = str.cadena_[i];
   }
-  //hay que devolver la referencia de un objeto 
   return *this;
   
 }
 String& String::operator=(const char &chr){
   resize(1);
   cadena_[0] = chr;
-  // std::cout << cadena_ << std::endl;
   return *this;
 }
 
@@ -152,7 +151,7 @@ String& String::operator+=(const String &str){
     cadena_[i] = str.cadena_[j];
     j++;
   }
-  std::cout << cadena_ << std::endl;
+  // std::cout << cadena_ << std::endl;
   return *this;
 }
 
@@ -185,21 +184,24 @@ String& String::replace(int pos, int sz, const String &str) {
     i++;
     ii++; 
   }
-
-  std::cout << "Resultado: " << temp << std::endl; 
+  delete[] cadena_;
+  this->sz_ = nSize;
+  this->cadena_ = temp;
   return *this;
 }
 
 String& String::replace(const String &subStr, const String &newStr2) {
-  
   for (int i = 0; i < sz_; i++) {
     String temp = substr(i, subStr.length());
+    temp.sz_ = subStr.length();
     if(temp == subStr) {
-      replace(i, subStr.length(), newStr2);
+      std::cout << replace(i -1 , subStr.length(), newStr2) << std::endl;
+      
     }
   }
-}
+  return *this;
 
+}
 
 // String& String::replace_all(const String &subStr, const String &newStr2) {
 
@@ -207,67 +209,98 @@ String& String::replace(const String &subStr, const String &newStr2) {
 // }
 
 
-String& String::substr(int pos, int length) {
+// String& String::substr(int pos, int length) {
   
+//   int newSize = sz_ - pos;
+//   int i=0;  
+//   if( length == npos_) {
+//     char *temp = new char[newSize]; 
+//     while (cadena_[i] != '\0')
+//     {
+//       temp[i] = cadena_[pos];
+//       pos++;   
+//       i++;
+//     }
+//     delete[] cadena_;
+//     this->cadena_ = temp;
+//   }
+//   else {
+//     char *temp = new char[length];
+//     int aux=0;
+//     while (aux < length)
+//     {
+//       temp[aux] = cadena_[pos];
+//       pos++;   
+//       aux++;
+//     }
+//     delete[] cadena_;
+//     this->cadena_ = temp;
+//   }
+//   return *this;
+ 
+// }
+
+
+String String::substr(int pos, int length) {
+  String aux;
   int newSize = sz_ - pos;
   int i=0;  
   if( length == npos_) {
-    char *temp = new char[newSize]; 
+    aux.cadena_ = new char[newSize]; 
     while (cadena_[i] != '\0')
     {
-      temp[i] = cadena_[pos];
+      aux[i] = cadena_[pos];
       pos++;   
       i++;
     }
-    this->cadena_ = temp;
+    //delete[] cadena_;
+    //this->cadena_ = temp;
   }
   else {
-    char *temp = new char[length];
-    int aux=0;
-    while (aux < length)
+    aux.cadena_ = new char[length];
+    int k=0;
+    while (k < length)
     {
-      temp[aux] = cadena_[pos];
+      aux[k] = cadena_[pos];
       pos++;   
-      aux++;
+      k++;
     }
-    this->cadena_ = temp;
+    //delete[] cadena_;
+    //this->cadena_ = temp;
   }
-   std::cout << "Resultado: " << cadena_ << std::endl; 
-  return *this;
+  return aux;
  
 }
 
 std::vector<String> String::split(char delimit) {
   std::vector<String> vString;
-  
   String temp;
-  this->push_back(delimit);  
   for (int i = 0; i < sz_; i++) {
     if (at(i) != delimit) {
       temp += at(i);
     } else {
       vString.push_back(temp);
-      std::cout << vString.back() << std::endl; 
       temp = "";
     }
   }
-
+  vString.push_back(temp);
+  
   return vString;
 }
 
 
 String join(std::vector<String> &vStr, char joint){
-  std::cout << "Entrando a join" << std::endl; 
-  String temp; 
-  // std:: cout << temp << std::endl; 
-  for(int i = 0 ; i < vStr.size(); i++){
-    temp += vStr[i]; 
-    if(i < vStr.size() - 1){
-      temp += joint; 
-      std::cout << temp << std::endl; 
-    }
-  }
-  return temp; 
+  
+  // String temp;  
+  // for(int i = 0 ; i < vStr.size(); i++){
+  //   temp += vStr[i]; 
+  //   std::cout << "=>" << temp << std::endl;
+  //   if(i < vStr.size() - 1){
+  //     temp += joint; 
+  //     std::cout << temp << std::endl; 
+  //   }
+  // }
+  // return temp; 
 }
 
 void String::resize(int length) {
@@ -303,10 +336,18 @@ bool operator==(const String &str1, const String &str2) {
   bool temp;
   if(str1.length() == str2.length()) {
     for (int i = 0; i < str1.length(); i++) {
-      if(str1[i] == str2[i]) count++;
-    }      
+      if(str1[i] == str2[i]) {
+        count++;
+      }      
+    }
   }
-  return (count == str1.length())? true : false;
+ 
+  if (count == str2.length()) {
+    return true;
+  } 
+  else {
+    return false;
+  }
 }
 
 bool operator!=(const String &str1, const String &str2) {
