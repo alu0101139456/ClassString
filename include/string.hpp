@@ -113,9 +113,22 @@ public:
   String &operator+=(const String &str);
   String &operator+=(const char &chr); //fijarse si hasce falta dejarlo como referencia
 
+  /**
+   * @brief Método que reemplaza la cadena desde una determinada posición
+   * @param pos Posición desde la que se quiere reemplazar
+   * @param sz Longitud que se quiere reemplazar
+   * @param str Palabra que se quiere reemplazar
+   * @return Devuelve una nueva string 
+   **/
 
   String &replace(int pos, int sz, const String &str);
 
+  /**
+   * @brief Método que reemplaza una palabra por otra dentro de la cadena
+   * @param subStr Palabra que se quiere reemplazar
+   * @param newStr2 Palabra que se quiere poner en la cadena
+   * @return Devuelve una nueva string 
+   **/
   String &replace(const String &subStr, const String &newStr2);
   String &replace_all(const String &subStr, const String &newStr2);
 
@@ -129,7 +142,20 @@ public:
 
   String substr(int pos, int length = npos_);
 
+  /**
+   * @brief Separa las palabras de una cadena y las mete en un vector de string
+   * @param demilit Delimitador para separar las palabras
+   * @return Devuelve un vector de string
+   **/
+
   std::vector<String> split(char delimit = ' ');
+
+  /**
+   * @brief Une las palabras del vector de string en una cadena
+   * @param str Vector de string que contiene las string que se quieren juntar
+   * @param joint Va a unirlas por espacios por defecto. 
+   * @return Devuelve la string con las palabras del vector unidas
+   **/ 
 
   String join(std::vector<String> &vStr, char joint = ' ');
   //String join(std::vector<String> &vStr, String joint);
@@ -138,13 +164,39 @@ public:
 
 private:
   void resize(int length);
-
-  
 };
 
+  /**
+   * @brief Operador que suma dos string 
+   * @param str1 String que se quiere sumar
+   * @param str2 String que se quiere sumar
+   * @return Devuelve una nueva string
+   **/
 String operator+(const String &str1, const String &str2);
+
+  /**
+   * @brief Operador de salida 
+   **/
+
 std::ostream &operator<<(std::ostream &os, const String &str);
+
+  /**
+   * @brief Operador de entrada 
+   **/
 std::istream &operator>>(std::istream &is, const String &str);
 
+  /**
+   * @brief Operador que comprueba si dos strig son iguales
+   * @param str1 String que se quiere comparar
+   * @param str2 String que se quiere comparar
+   * @return Devuelve true o false  
+   **/
 bool operator==(const String &str1, const String &str2);
+
+ /**
+   * @brief Operador que comprueba si dos strig son diferentes
+   * @param str1 String que se quiere comparar
+   * @param str2 String que se quiere comparar
+   * @return Devuelve true o false 
+   **/
 bool operator!=(const String &str1, const String &str2);
