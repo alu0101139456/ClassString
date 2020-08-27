@@ -48,7 +48,8 @@ int main() {
 
   
   std::cout << "\nPrueba de join con vString: " << std::endl;
-  std::cout << "Resultado: " < << std::endl;
+  test.join(vString); 
+  std::cout << "Resultado: " << test << std::endl;
 
 
 
