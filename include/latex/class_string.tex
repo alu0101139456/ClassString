@@ -1,0 +1,316 @@
+\hypertarget{class_string}{}\section{String Class Reference}
+\label{class_string}\index{String@{String}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_string_a8a7ef356e05eb9b1ea1ab518baee3095}\label{class_string_a8a7ef356e05eb9b1ea1ab518baee3095}} 
+\hyperlink{class_string_a8a7ef356e05eb9b1ea1ab518baee3095}{String} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. (sz\+\_\+ = 0 y char $\ast$cadena = nullptr) \end{DoxyCompactList}\item 
+\hyperlink{class_string_a4c35f4fb85fec55f015c3605e9160d60}{String} (const char $\ast$cadena)
+\begin{DoxyCompactList}\small\item\em Constructor from char to string. \end{DoxyCompactList}\item 
+\hyperlink{class_string_a5774bcd4a4c232a8aec5a3ec6d01a157}{String} (const \hyperlink{class_string}{String} \&str)
+\begin{DoxyCompactList}\small\item\em Constructor de copia. \end{DoxyCompactList}\item 
+\hyperlink{class_string_a1c734262c5ac194c3a4f9639907afea1}{String} (const \hyperlink{class_string}{String} \&str, int pos, int sz=npos\+\_\+)
+\begin{DoxyCompactList}\small\item\em Constructor que convierte un string a un substring. \end{DoxyCompactList}\item 
+\hyperlink{class_string_a202b1b80228ec2d6e9274064f412a91d}{String} (int sz, char crtr)
+\begin{DoxyCompactList}\small\item\em Constructor que rellena con un caracter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_ac40b2a3fb58c2d8556f5e6ff73510036}\label{class_string_ac40b2a3fb58c2d8556f5e6ff73510036}} 
+\hyperlink{class_string_ac40b2a3fb58c2d8556f5e6ff73510036}{$\sim$\+String} ()
+\begin{DoxyCompactList}\small\item\em Destructor que limpia la memoria dinámica con el delete. \end{DoxyCompactList}\item 
+int \hyperlink{class_string_a79366b9ecdbde9701a9acfe0009a5ded}{length} () const
+\item 
+const char $\ast$ \hyperlink{class_string_a0274f3e61533d15086816fb7f47ccb54}{c\+\_\+str} () const
+\item 
+char \hyperlink{class_string_a61572c111aa3d8af654e244ac367408e}{at} (int pos) const
+\item 
+\mbox{\Hypertarget{class_string_ad9a9d2cba12b1db8c003edd3d9075a80}\label{class_string_ad9a9d2cba12b1db8c003edd3d9075a80}} 
+char \& {\bfseries at} (int pos)
+\item 
+char \hyperlink{class_string_aaac2d7b67a3d6ba926365c88a16d71e6}{front} () const
+\item 
+\mbox{\Hypertarget{class_string_a720b4d7d9da33fa63c8776479c1b2ca6}\label{class_string_a720b4d7d9da33fa63c8776479c1b2ca6}} 
+char \& {\bfseries front} ()
+\item 
+char \hyperlink{class_string_a3ca787cbf830a5ce99e18243bd841279}{back} () const
+\item 
+\mbox{\Hypertarget{class_string_a6324abf8bde151ab7417cfcf04220717}\label{class_string_a6324abf8bde151ab7417cfcf04220717}} 
+char \& {\bfseries back} ()
+\item 
+void \hyperlink{class_string_a9f2d7c4ca8aa53bd86532461d700e572}{push\+\_\+back} (char ch)
+\begin{DoxyCompactList}\small\item\em Pone un caracter al final de la cadena. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_ab5b0c43ae84247df8e5f9488a911587c}\label{class_string_ab5b0c43ae84247df8e5f9488a911587c}} 
+void \hyperlink{class_string_ab5b0c43ae84247df8e5f9488a911587c}{clear} ()
+\begin{DoxyCompactList}\small\item\em Lo que está apuntando el objeto temporal pasa a nuestro atributo cadena. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_a82d1c8563a9604f09e0e4e2f91ba6862}\label{class_string_a82d1c8563a9604f09e0e4e2f91ba6862}} 
+char \& \hyperlink{class_string_a82d1c8563a9604f09e0e4e2f91ba6862}{operator\mbox{[}$\,$\mbox{]}} (int pos)
+\begin{DoxyCompactList}\small\item\em Operador que facilita el acceso al string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_af6aec02d2aed12bd9e56724e070d21d0}\label{class_string_af6aec02d2aed12bd9e56724e070d21d0}} 
+char {\bfseries operator\mbox{[}$\,$\mbox{]}} (int pos) const
+\item 
+\mbox{\Hypertarget{class_string_aa3435c4a0cb1bf07534098c16693971d}\label{class_string_aa3435c4a0cb1bf07534098c16693971d}} 
+\hyperlink{class_string}{String} \& \hyperlink{class_string_aa3435c4a0cb1bf07534098c16693971d}{operator=} (const \hyperlink{class_string}{String} \&str)
+\begin{DoxyCompactList}\small\item\em Operador que iguala dos string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_a6857d06cd9b741bc7cd9087f1bc5eebc}\label{class_string_a6857d06cd9b741bc7cd9087f1bc5eebc}} 
+\hyperlink{class_string}{String} \& {\bfseries operator=} (const char \&chr)
+\item 
+\mbox{\Hypertarget{class_string_a758334cc067e2595976ad0ec2f3747f9}\label{class_string_a758334cc067e2595976ad0ec2f3747f9}} 
+\hyperlink{class_string}{String} \& \hyperlink{class_string_a758334cc067e2595976ad0ec2f3747f9}{operator+=} (const \hyperlink{class_string}{String} \&str)
+\begin{DoxyCompactList}\small\item\em Operador que suma dos string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_a5995c42c9afd6f4d08937301376541a4}\label{class_string_a5995c42c9afd6f4d08937301376541a4}} 
+\hyperlink{class_string}{String} \& {\bfseries operator+=} (const char \&chr)
+\item 
+\hyperlink{class_string}{String} \& \hyperlink{class_string_a767d727438ffc76ba42a89498adca4d0}{replace} (int pos, int sz, const \hyperlink{class_string}{String} \&str)
+\begin{DoxyCompactList}\small\item\em Método que reemplaza la cadena desde una determinada posición. \end{DoxyCompactList}\item 
+\hyperlink{class_string}{String} \& \hyperlink{class_string_a6386bfc836657af198419db8165d7caa}{replace} (const \hyperlink{class_string}{String} \&sub\+Str, const \hyperlink{class_string}{String} \&new\+Str2)
+\begin{DoxyCompactList}\small\item\em Método que reemplaza una palabra por otra dentro de la cadena. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_a3b38a22824771b11054f44517aef07eb}\label{class_string_a3b38a22824771b11054f44517aef07eb}} 
+\hyperlink{class_string}{String} \& {\bfseries replace\+\_\+all} (const \hyperlink{class_string}{String} \&sub\+Str, const \hyperlink{class_string}{String} \&new\+Str2)
+\item 
+\hyperlink{class_string}{String} \hyperlink{class_string_a2f700a145e4069416cc031e9b02d73b7}{substr} (int pos, int \hyperlink{class_string_a79366b9ecdbde9701a9acfe0009a5ded}{length}=npos\+\_\+)
+\begin{DoxyCompactList}\small\item\em Proporciona un substring desde la poscición hasta el tamaño deseado. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{class_string}{String} $>$ \hyperlink{class_string_a2727c185f04dc7f6be19c48f065b884c}{split} (char delimit=\textquotesingle{} \textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Separa las palabras de una cadena y las mete en un vector de string. \end{DoxyCompactList}\item 
+\hyperlink{class_string}{String} \hyperlink{class_string_ad819c6db041854f0b6908b530ffd4331}{join} (std\+::vector$<$ \hyperlink{class_string}{String} $>$ \&v\+Str, char joint=\textquotesingle{} \textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Une las palabras del vector de string en una cadena. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_string_a4c35f4fb85fec55f015c3605e9160d60}\label{class_string_a4c35f4fb85fec55f015c3605e9160d60}} 
+\index{String@{String}!String@{String}}
+\index{String@{String}!String@{String}}
+\subsubsection{\texorpdfstring{String()}{String()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily String\+::\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{cadena }\end{DoxyParamCaption})}
+
+
+
+Constructor from char to string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cadena} & Puntero de tipo char \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_string_a5774bcd4a4c232a8aec5a3ec6d01a157}\label{class_string_a5774bcd4a4c232a8aec5a3ec6d01a157}} 
+\index{String@{String}!String@{String}}
+\index{String@{String}!String@{String}}
+\subsubsection{\texorpdfstring{String()}{String()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily String\+::\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{class_string}{String} \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Constructor de copia. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Referencia de un string que se quiere copiar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_string_a1c734262c5ac194c3a4f9639907afea1}\label{class_string_a1c734262c5ac194c3a4f9639907afea1}} 
+\index{String@{String}!String@{String}}
+\index{String@{String}!String@{String}}
+\subsubsection{\texorpdfstring{String()}{String()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily String\+::\+String (\begin{DoxyParamCaption}\item[{const \hyperlink{class_string}{String} \&}]{str,  }\item[{int}]{pos,  }\item[{int}]{sz = {\ttfamily npos\+\_\+} }\end{DoxyParamCaption})}
+
+
+
+Constructor que convierte un string a un substring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Referencia del string que se quiere cambiar \\
+\hline
+{\em pos} & Posición que se quiere empezar a cambiar \\
+\hline
+{\em sz} & Hasta donde se quiere cambiar el string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_string_a202b1b80228ec2d6e9274064f412a91d}\label{class_string_a202b1b80228ec2d6e9274064f412a91d}} 
+\index{String@{String}!String@{String}}
+\index{String@{String}!String@{String}}
+\subsubsection{\texorpdfstring{String()}{String()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily String\+::\+String (\begin{DoxyParamCaption}\item[{int}]{sz,  }\item[{char}]{crtr }\end{DoxyParamCaption})}
+
+
+
+Constructor que rellena con un caracter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sz} & Tamaño que se quiere rellenar \\
+\hline
+{\em crtr} & Caracter con el que se quiere rellenar \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_string_a61572c111aa3d8af654e244ac367408e}\label{class_string_a61572c111aa3d8af654e244ac367408e}} 
+\index{String@{String}!at@{at}}
+\index{at@{at}!String@{String}}
+\subsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily char String\+::at (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Posición que se quiere acceder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve lo que hay en la posición del parámetro 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_a3ca787cbf830a5ce99e18243bd841279}\label{class_string_a3ca787cbf830a5ce99e18243bd841279}} 
+\index{String@{String}!back@{back}}
+\index{back@{back}!String@{String}}
+\subsubsection{\texorpdfstring{back()}{back()}}
+{\footnotesize\ttfamily char String\+::back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Devuelve el último caracter del string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_a0274f3e61533d15086816fb7f47ccb54}\label{class_string_a0274f3e61533d15086816fb7f47ccb54}} 
+\index{String@{String}!c\+\_\+str@{c\+\_\+str}}
+\index{c\+\_\+str@{c\+\_\+str}!String@{String}}
+\subsubsection{\texorpdfstring{c\+\_\+str()}{c\_str()}}
+{\footnotesize\ttfamily const char$\ast$ String\+::c\+\_\+str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Devuelve el string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_aaac2d7b67a3d6ba926365c88a16d71e6}\label{class_string_aaac2d7b67a3d6ba926365c88a16d71e6}} 
+\index{String@{String}!front@{front}}
+\index{front@{front}!String@{String}}
+\subsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily char String\+::front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Devuelve el caracter de la primera posición del string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_ad819c6db041854f0b6908b530ffd4331}\label{class_string_ad819c6db041854f0b6908b530ffd4331}} 
+\index{String@{String}!join@{join}}
+\index{join@{join}!String@{String}}
+\subsubsection{\texorpdfstring{join()}{join()}}
+{\footnotesize\ttfamily \hyperlink{class_string}{String} String\+::join (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \hyperlink{class_string}{String} $>$ \&}]{v\+Str,  }\item[{char}]{joint = {\ttfamily \textquotesingle{}~\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Une las palabras del vector de string en una cadena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Vector de string que contiene las string que se quieren juntar \\
+\hline
+{\em joint} & Va a unirlas por espacios por defecto. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve la string con las palabras del vector unidas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_a79366b9ecdbde9701a9acfe0009a5ded}\label{class_string_a79366b9ecdbde9701a9acfe0009a5ded}} 
+\index{String@{String}!length@{length}}
+\index{length@{length}!String@{String}}
+\subsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily int String\+::length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Devuelve el tamaño del string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_a9f2d7c4ca8aa53bd86532461d700e572}\label{class_string_a9f2d7c4ca8aa53bd86532461d700e572}} 
+\index{String@{String}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!String@{String}}
+\subsubsection{\texorpdfstring{push\+\_\+back()}{push\_back()}}
+{\footnotesize\ttfamily void String\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{char}]{ch }\end{DoxyParamCaption})}
+
+
+
+Pone un caracter al final de la cadena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & Caracter que ingresa en la cadena por el final \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_string_a767d727438ffc76ba42a89498adca4d0}\label{class_string_a767d727438ffc76ba42a89498adca4d0}} 
+\index{String@{String}!replace@{replace}}
+\index{replace@{replace}!String@{String}}
+\subsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_string}{String}\& String\+::replace (\begin{DoxyParamCaption}\item[{int}]{pos,  }\item[{int}]{sz,  }\item[{const \hyperlink{class_string}{String} \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Método que reemplaza la cadena desde una determinada posición. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Posición desde la que se quiere reemplazar \\
+\hline
+{\em sz} & Longitud que se quiere reemplazar \\
+\hline
+{\em str} & Palabra que se quiere reemplazar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve una nueva string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_a6386bfc836657af198419db8165d7caa}\label{class_string_a6386bfc836657af198419db8165d7caa}} 
+\index{String@{String}!replace@{replace}}
+\index{replace@{replace}!String@{String}}
+\subsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_string}{String}\& String\+::replace (\begin{DoxyParamCaption}\item[{const \hyperlink{class_string}{String} \&}]{sub\+Str,  }\item[{const \hyperlink{class_string}{String} \&}]{new\+Str2 }\end{DoxyParamCaption})}
+
+
+
+Método que reemplaza una palabra por otra dentro de la cadena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sub\+Str} & Palabra que se quiere reemplazar \\
+\hline
+{\em new\+Str2} & Palabra que se quiere poner en la cadena \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve una nueva string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_a2727c185f04dc7f6be19c48f065b884c}\label{class_string_a2727c185f04dc7f6be19c48f065b884c}} 
+\index{String@{String}!split@{split}}
+\index{split@{split}!String@{String}}
+\subsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily std\+::vector$<$\hyperlink{class_string}{String}$>$ String\+::split (\begin{DoxyParamCaption}\item[{char}]{delimit = {\ttfamily \textquotesingle{}~\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Separa las palabras de una cadena y las mete en un vector de string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em demilit} & Delimitador para separar las palabras \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve un vector de string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_a2f700a145e4069416cc031e9b02d73b7}\label{class_string_a2f700a145e4069416cc031e9b02d73b7}} 
+\index{String@{String}!substr@{substr}}
+\index{substr@{substr}!String@{String}}
+\subsubsection{\texorpdfstring{substr()}{substr()}}
+{\footnotesize\ttfamily \hyperlink{class_string}{String} String\+::substr (\begin{DoxyParamCaption}\item[{int}]{pos,  }\item[{int}]{length = {\ttfamily npos\+\_\+} }\end{DoxyParamCaption})}
+
+
+
+Proporciona un substring desde la poscición hasta el tamaño deseado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Posición desde la que se quiere el substring \\
+\hline
+{\em lenght} & Tamaño que se quiere del substring \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve una referencia del substring 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+string.\+hpp\end{DoxyCompactItemize}
